@@ -1,0 +1,6 @@
+numpy
+opencv_python
+Pillow
+PyAutoGUI
+pywin32
+win32gui

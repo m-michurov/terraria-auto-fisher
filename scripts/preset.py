@@ -63,6 +63,7 @@ def _load_preset(path: Path) -> Preset:
 
 
 def _load_presets() -> list[Preset]:
+    _PRESETS_DIR.mkdir(parents=True, exist_ok=True)
     presets = list(map(_load_preset, _PRESETS_DIR.iterdir()))
 
     if any(preset.name == Preset.DEFAULT_NAME for preset in presets):

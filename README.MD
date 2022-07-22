@@ -13,7 +13,7 @@ A program that automates fishing in Terraria using computer vision.
 ## Run
 
 ```
-$> pythonw scripts/main.py
+$> pythonw -m auto-fisher
 ```
 
 ## Usage

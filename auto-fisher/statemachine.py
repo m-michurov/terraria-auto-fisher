@@ -103,6 +103,7 @@ class _Casting(_State):
 
 
 class _Catching(_State):
+    MAX_WAIT_TIME = 10
 
     def __init__(
             self,
@@ -115,21 +116,33 @@ class _Catching(_State):
         self._cumulative_difference: float = 0.0
         self._caught: bool = False
 
+        self._start: float = time.time()
+
     @property
     def description(self) -> str:
         if self._cumulative_difference > 0:
             return 'Caught something'
 
+        elapsed = time.time() - self._start
+        if elapsed > self.MAX_WAIT_TIME:
+            return 'Wait time exceeded'
+
         return 'Waiting for something to catch'
 
     @property
     def next(self) -> _State:
-        if self._caught:
+        elapsed = time.time() - self._start
+
+        if self._caught or elapsed > self.MAX_WAIT_TIME:
             return self._state_factory.waiting_before_cast()
 
         return self
 
     def act(self, motion: bool) -> None:
+        elapsed = time.time() - self._start
+        if elapsed > self.MAX_WAIT_TIME:
+            self._reel_in_fn()
+
         if not motion:
             return
 

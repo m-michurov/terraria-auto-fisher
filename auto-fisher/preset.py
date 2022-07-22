@@ -2,7 +2,7 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
-from motion_detector import MotionDetector
+from .motion_detector import MotionDetector
 
 
 __all__ = [

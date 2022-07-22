@@ -2,11 +2,11 @@ import time
 from tkinter import messagebox
 from typing import Any
 
-from gui import AutoFisherGUI, PresetViewModel
-from interaction import find_window, switch_window, click, screenshot, move_mouse, active_window_title, press
-from motion_detector import MotionDetector
-from preset import Preset
-from statemachine import FishingStateMachine
+from .gui import AutoFisherGUI, PresetViewModel
+from .interaction import find_window, switch_window, click, screenshot, move_mouse, active_window_title, press
+from .motion_detector import MotionDetector
+from .preset import Preset
+from .statemachine import FishingStateMachine
 
 SIZE = 92
 
@@ -92,5 +92,4 @@ def main() -> None:
     bot.run()
 
 
-if __name__ == '__main__':
-    main()
+main()

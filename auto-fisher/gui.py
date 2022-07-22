@@ -8,8 +8,8 @@ import numpy as np
 import pyautogui as pg
 from PIL import Image, ImageTk
 
-from motion_detector import MotionDetector
-from preset import Preset
+from .motion_detector import MotionDetector
+from .preset import Preset
 
 __all__ = [
     'PresetViewModel',
